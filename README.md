@@ -75,7 +75,7 @@ Secure cloud-based deployment
 Autonomous coordination systems
 Author
 
-Kartik
+Kartik,
 Ayushman
 
 B.Tech CSE (Cloud Computing)
