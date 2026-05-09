@@ -1,0 +1,201 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    /* Military command center aesthetic - dark mode primary */
+    --background: 219 14% 8%;
+    --foreground: 210 13% 92%;
+
+    --card: 219 18% 12%;
+    --card-foreground: 210 13% 92%;
+
+    --popover: 219 18% 12%;
+    --popover-foreground: 210 13% 92%;
+
+    /* Primary: Deep strategic blue */
+    --primary: 208 100% 44%;
+    --primary-foreground: 219 14% 8%;
+
+    /* Secondary: Cyan tactical accent */
+    --secondary: 180 100% 45%;
+    --secondary-foreground: 219 14% 8%;
+
+    /* Muted: Subdued interface elements */
+    --muted: 219 12% 28%;
+    --muted-foreground: 210 13% 70%;
+
+    /* Accent: Amber for alerts and critical status */
+    --accent: 38 100% 50%;
+    --accent-foreground: 219 14% 8%;
+
+    /* Destructive: Red for critical alerts */
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 210 13% 92%;
+
+    --border: 219 18% 18%;
+    --input: 219 18% 15%;
+    --ring: 180 100% 45%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 219 14% 10%;
+    --sidebar-foreground: 210 13% 92%;
+    --sidebar-primary: 208 100% 44%;
+    --sidebar-primary-foreground: 219 14% 8%;
+    --sidebar-accent: 180 100% 45%;
+    --sidebar-accent-foreground: 219 14% 8%;
+    --sidebar-border: 219 18% 18%;
+    --sidebar-ring: 180 100% 45%;
+  }
+
+  .dark {
+    --background: 219 14% 8%;
+    --foreground: 210 13% 92%;
+
+    --card: 219 18% 12%;
+    --card-foreground: 210 13% 92%;
+
+    --popover: 219 18% 12%;
+    --popover-foreground: 210 13% 92%;
+
+    --primary: 208 100% 44%;
+    --primary-foreground: 219 14% 8%;
+
+    --secondary: 180 100% 45%;
+    --secondary-foreground: 219 14% 8%;
+
+    --muted: 219 12% 28%;
+    --muted-foreground: 210 13% 70%;
+
+    --accent: 38 100% 50%;
+    --accent-foreground: 219 14% 8%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 210 13% 92%;
+
+    --border: 219 18% 18%;
+    --input: 219 18% 15%;
+    --ring: 180 100% 45%;
+
+    --sidebar-background: 219 14% 10%;
+    --sidebar-foreground: 210 13% 92%;
+    --sidebar-primary: 208 100% 44%;
+    --sidebar-primary-foreground: 219 14% 8%;
+    --sidebar-accent: 180 100% 45%;
+    --sidebar-accent-foreground: 219 14% 8%;
+    --sidebar-border: 219 18% 18%;
+    --sidebar-ring: 180 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  /* Status indicator colors */
+  .status-active {
+    color: #4ade80;
+  }
+
+  .status-warning {
+    @apply text-accent;
+  }
+
+  .status-critical {
+    @apply text-destructive;
+  }
+
+  .status-idle {
+    @apply text-muted-foreground;
+  }
+
+  /* Tactical grid pattern */
+  .tactical-grid {
+    background-image:
+      linear-gradient(0deg, rgba(100, 200, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(100, 200, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Pulse animation for alerts */
+  @keyframes pulse-alert {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .pulse-alert {
+    animation: pulse-alert 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Scan line effect */
+  @keyframes scan-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  .scan-effect {
+    animation: scan-line 3s ease-in-out infinite;
+  }
+
+  /* Glow effect for active elements */
+  .glow-primary {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
+  }
+
+  .glow-accent {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px rgba(255, 150, 0, 0.3);
+  }
+
+  /* Data visualization colors */
+  .data-primary {
+    @apply text-primary;
+  }
+
+  .data-secondary {
+    @apply text-secondary;
+  }
+
+  .data-danger {
+    @apply text-destructive;
+  }
+}
